@@ -44,7 +44,44 @@ console.log("Pokémon that are fire types");
 // const firePkmn = pokémon.filter( p => p.types == "fire"); close but only contains single types
 // const firePkmn = pokémon.filter( p => p.types === "fire"); null
 // const firePkmn = pokémon.filter( p => p.types <= "fire");
-const firePkmn = pokémon.filter( p => p.types[0] == "fire");
+const firePkmn = pokémon.filter( p => p.types[0] == "fire" || p.types[1] == "fire");
 for(let i = 0; i< firePkmn.length; i++){ 
     console.log(firePkmn[i]);
 }
+
+console.log("Dual type pokémon");
+const DualTypePkmn = pokémon.filter( p => p.types.length == 2); 
+//=== will work too?
+// const DualTypePkmn = pokémon.filter( p => p.types[1] != null);
+// ^ will also work
+for(let i = 0; i < DualTypePkmn.length; i++){
+    console.log(DualTypePkmn[i]);
+}
+// console.log(pokémon[0].types.length == 2);
+// console.log(DualTypePkmn[1]);
+const pknmNames = pokémon.map(p => p.name);
+console.log("Pokémon names");
+console.log(pknmNames);
+
+console.log("Pokémon ids greater than 99");
+const over99Pknm = pokémon.filter(p => p.id > 99);
+for(let i = 0; i < over99Pknm.length; i++){
+console.log(over99Pknm[i]);
+}
+
+console.log("Pure Poison PoKémon");
+const purePoisonPkmn = pokémon.filter(p => p.types[0] == "poison" && p.types[1] == null);
+for(let i = 0; i < purePoisonPkmn.length; i++){
+    console.log(purePoisonPkmn[i]);
+}
+
+console.log("Dual Flying PoKémon");
+const DualFlyingPkmn = pokémon.filter(p => p.types[0] == "flying" || p.types[1] == "flying" && p.types[1] != null ) ;
+for(let i = 0; i < DualFlyingPkmn.length; i++){
+    console.log(DualFlyingPkmn[i]);
+}
+
+console.log("Normal pokémon count");
+const normalPkmn = pokémon.filter(p => p.types[0] == "normal" || p.types[1] == "normal");
+let normalPkmnCount = normalPkmn.length;
+console.log(normalPkmnCount);
