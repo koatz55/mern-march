@@ -32,8 +32,19 @@ console.log(bListPkmn);
 // Dose not give much info
 console.log(bListPkmn[0]);
 // Gives 1st pokemon in list
-console.log("Pokémon divisible by 3")
+console.log("Pokémon divisible by 3");
 const pkDivBy3 = pokémon.filter(p => p.id%3 == 0)
 for(let i = 0; i< pkDivBy3.length; i++){
 console.log(pkDivBy3[i])}
 
+console.log("Pokémon that are fire types");
+// const firePkmn = pokémon.filter( p => p.types.filter(t => t[0] === "f"));
+// const firePkmn = pokémon.filter(t => t[0] === "f"); returns null
+// const firePkmn = pokémon.types.filter(t => t[0] === "f"); error
+// const firePkmn = pokémon.filter( p => p.types == "fire"); close but only contains single types
+// const firePkmn = pokémon.filter( p => p.types === "fire"); null
+// const firePkmn = pokémon.filter( p => p.types <= "fire");
+const firePkmn = pokémon.filter( p => p.types[0] == "fire");
+for(let i = 0; i< firePkmn.length; i++){ 
+    console.log(firePkmn[i]);
+}
