@@ -3,10 +3,11 @@
 }
 
 .Greeting {
-  height: 45vmin;
   pointer-events: none;
 }
-
+.TO-Do{
+  height: 45vmin;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -22,10 +23,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {

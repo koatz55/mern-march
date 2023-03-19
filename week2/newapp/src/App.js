@@ -7,20 +7,20 @@ function App() {
       <header className="App-header">
         <h1 className ="Greeting">Hello Dojo!</h1>
         <h2>Things I need to do:</h2>
-        <p>
-          * Learn React 
-          * Turn in at least 60% core assignments
-          * DQs
-          * Feed my cat and dog 
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ul className = "To-DO">
+          <li>
+            Learn React 
+          </li>
+          <li>
+            Turn in at least 60% core assignments
+          </li>
+          <li>
+            DQs
+          </li>
+          <li>
+            Feed my cat and dog 
+          </li>
+        </ul>
       </header>
     </div>
   );
