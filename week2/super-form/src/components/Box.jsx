@@ -1,16 +1,18 @@
 import React, { useState } from "react"
 
 const Box = (props) => {
-    const [color, setColor] = useState("");
+    // const [color, setColor] = useState("");
+    const {boxList, setBoxList} = props
+    const [box, setBox] = useState({ color:""})
     const [colorError ,setColorError] = useState("");
     
     const handleColor = (e) => {
-        setColor(e.target.value);
-        if (e.target.value < 1 ){
-            setColorError("color must not be empty");
-        }else {
-            setColorError("");
-        }
+        setBox({...box, [e.target.name]: e.target.value});
+        // if (e.target.value < 1 ){
+        //     setColorError("color must not be empty");
+        // }else {
+        //     setColorError("");
+        // }
     };
 
     const createBox = (e) => {
@@ -18,10 +20,9 @@ const Box = (props) => {
         e.preventDefault();
         
         // shorthand ES6 syntax for building an object - see notes above
-        const newBox = { color };
-        console.log("box created", newBox);
-        setColor("");
-        
+        setBoxList([...boxList, box])
+//         console.log("box created", newBox);
+        setBox({color: ""})
     }
 
     return (
@@ -29,7 +30,7 @@ const Box = (props) => {
         <form onSubmit={ createBox }>
             <div>
                 <label>Color: </label> 
-                <input type="text" value={color} onChange={ handleColor } />
+                <input type="text" name="color" value={box.color} onChange={ handleColor } />
                     {
                         colorError ?
                         <p>{ colorError }</p> :

@@ -1,15 +1,13 @@
 import React, {useState} from 'react';
-
+import box from './Box';
 const DisplayBoxes = (props) => {
 
     const {boxList, setBoxList} = props
     return (
-        <div>
+        <div className='Box-List'>
             {
                 boxList.map((box, idx) => (
-                    <div key={idx}>
-                        <div className='Box' style={box.color}></div>
-                    </div>
+                <div key={idx} className='Box' style={{backgroundColor: box.color, color: box.color}} >{box.color}</div>
                 ))
             }
         </div>
