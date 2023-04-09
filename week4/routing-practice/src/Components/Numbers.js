@@ -6,7 +6,7 @@ const Numbers = (props) => {
     
     return (
     <div className="Home">
-        <h1 >Number is { num }!</h1>
+        <h1 color="white">Number is { num }!</h1>
     </div>
     );
 }
