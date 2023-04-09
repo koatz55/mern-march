@@ -16,7 +16,8 @@ function App() {
         <header className="App-header">
           <Routes>
             <Route path="/" element={<Home/>} />
-            <Route path="/Numbers/num" element={<Numbers/>} />
+            <Route path="/Numbers/:num" element={<Numbers/>} />
+            {/* don't forget the :  it will run but no output*/}
           </Routes>
         </header>
       </div>
