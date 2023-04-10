@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Home from './Components/Home';
 import Numbers from './Components/Numbers';
+import Words from './Components/Words';
 import { 
   BrowserRouter, 
   Routes,
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/Numbers/:num" element={<Numbers/>} />
+            <Route path="/Words/:word" element={<Words/>} />
             {/* don't forget the :  it will run but no output*/}
           </Routes>
         </header>
