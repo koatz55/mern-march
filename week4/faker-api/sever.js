@@ -13,6 +13,7 @@ console.log(faker.name.firstName());
 
 const createUser = () => {
     return {
+        _id: faker.datatype.uuid(),
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         phoneNumber: faker.phone.number(),
@@ -23,20 +24,32 @@ const createUser = () => {
 
 const createCompany = () => {
     return {
+        _id: faker.datatype.uuid(),
         name: faker.company.name(),
         address: [faker.address.streetAddress(true),
             faker.address.country(), faker.address.city(),
             faker.address.state(), faker.address.zipCodeByState()]
     }
 }
-app.get('/user', (req, res) => {
+app.post('api/users/new', (req, res) => {
     const newUser = createUser();
-    res.json(newUser)
+    users.push(req.body);
+    console.log(req.body);
+    res.json(users)
 })
+
+app.get('api/companies/new', (req, res) => {
+    const newCompany = createCompany();
+    res.json(newCompany)
+})
+
+const users = []
 
 let user1 = createUser();
 console.log(user1)
 
+let company1 = createCompany();
+console.log(company1)
 
 
 
