@@ -15,7 +15,18 @@ const createUser = () => {
     return {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
-        phoneNumber: faker.phone.number()
+        phoneNumber: faker.phone.number(),
+        email: faker.internet.email(),
+        password: faker.internet.password(8, true)
+    }
+}
+
+const createCompany = () => {
+    return {
+        name: faker.company.name(),
+        address: [faker.address.streetAddress(true),
+            faker.address.country(), faker.address.city(),
+            faker.address.state(), faker.address.zipCodeByState()]
     }
 }
 app.get('/user', (req, res) => {
@@ -23,8 +34,8 @@ app.get('/user', (req, res) => {
     res.json(newUser)
 })
 
-
-
+let user1 = createUser();
+console.log(user1)
 
 
 
