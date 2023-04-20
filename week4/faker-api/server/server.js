@@ -2,7 +2,8 @@
 const express = require("express");
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/name_of_your_DB', {
+// Insert Database name after port number   (↧ database name)
+mongoose.connect('mongodb://127.0.0.1:27017/DB', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -47,7 +48,7 @@ const createCompany = () => {
 }
 app.post('api/users/new', (req, res) => {
     const newUser = createUser();
-    users.push(req.body);
+    users.push(newUser);
     console.log(req.body);
     res.json(users)
 })
