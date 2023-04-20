@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Insert Database name after port number   (↧ database name)
-mongoose.connect('mongodb://127.0.0.1:27017/DB', {
+mongoose.connect('mongodb://127.0.0.1:27017/Jokes', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
