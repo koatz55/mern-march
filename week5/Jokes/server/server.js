@@ -1,9 +1,11 @@
-const mongoose = require('mongoose');
-
-// Insert Database name after port number   (↧ database name)
-mongoose.connect('mongodb://127.0.0.1:27017/Jokes', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-    .then(() => console.log('Established a connection to the database'))
-    .catch(err => console.log('Something went wrong when connecting to the database ', err));
+const express = require("express");
+const app = express();
+    
+require("./config/mongoose.config");
+    
+app.use(express.json(), express.urlencoded({ extended: true }));
+    
+const AllMyJokeRoutes = require("./routes/Joke.routes");
+AllMyJokeRoutes(app);
+    
+app.listen(8000, () => console.log("The server is all fired up on port 8000"));
