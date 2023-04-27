@@ -11,7 +11,7 @@ const Detail = (props) => {
                 setProduct(res.data);
             })
             .catch( err => console.log(err) );
-    }, []);
+    }, [id]);
     return (
         <div>
             <p>Title: {product.title}</p>
