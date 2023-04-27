@@ -6,8 +6,15 @@ const ProductList = (props) => {
     via props by the parent component (app.js) to our child 
     component (ProductList.js). Now we can easily use the getter 
     and setter without having to write props.getter or props.setter every time: */
-    const {product, setProduct} = props;
+    const {removeFromDom, product, setProduct} = props;
     
+    const deleteProduct = (id) => {
+        axios.delete('http://localhost:8000/api/product/' + id)
+            .then(res => {
+                removeFromDom(id)
+            })
+            .catch(err => console.log(err))
+    }
     useEffect(()=>{
         axios.get("http://localhost:8000/api/product")
         .then((res)=>{
@@ -29,6 +36,8 @@ const ProductList = (props) => {
                 <p>{product.description}</p>
 
                 <Link to={`/product/${product._id}`}> {product.title} </Link>
+                <Link to={"/product/edit/" + product._id}> Edit </Link>
+                <button onClick={(e)=>{deleteProduct(product._id)}}>Delete</button>
             </div>
     )})
                 }
